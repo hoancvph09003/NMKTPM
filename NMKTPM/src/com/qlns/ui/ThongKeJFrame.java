@@ -251,13 +251,13 @@ public class ThongKeJFrame extends javax.swing.JInternalFrame {
 
         tblNgayCong.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Mã phòng ban", "Tên phòng ban", "Ngày công"
+                "MÃ NHÂN VIÊN", "TÊN NHÂN VIÊN", "PHÒNG BAN", "NGÀY CÔNG"
             }
         ));
         jScrollPane1.setViewportView(tblNgayCong);
@@ -271,7 +271,7 @@ public class ThongKeJFrame extends javax.swing.JInternalFrame {
             .addGroup(pnlNgayCongLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlNgayCongNC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNgayCongLayout.createSequentialGroup()
                 .addGroup(pnlNgayCongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlNgayCongLayout.createSequentialGroup()
@@ -286,21 +286,18 @@ public class ThongKeJFrame extends javax.swing.JInternalFrame {
                         .addComponent(cboPhongBanNC, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblTimKiemNC)
-                        .addGap(18, 18, 18)
+                        .addGap(28, 28, 28)
                         .addComponent(txtTimKiemNC, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(47, 47, 47))
+                .addGap(37, 37, 37))
         );
         pnlNgayCongLayout.setVerticalGroup(
             pnlNgayCongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNgayCongLayout.createSequentialGroup()
-                .addGroup(pnlNgayCongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlNgayCongLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(lblTitleNgayCong))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNgayCongLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnXuatBaoCaoNC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(16, 16, 16)
+                .addGroup(pnlNgayCongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitleNgayCong)
+                    .addComponent(btnXuatBaoCaoNC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
                 .addGroup(pnlNgayCongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlNgayCongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblPhongBanNC)
