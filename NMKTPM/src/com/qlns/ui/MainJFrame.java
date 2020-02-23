@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.polypro.ui;
+package com.qlns.ui;
+
+import com.qlns.helper.ShareHelper;
 
 /**
  *
@@ -16,6 +18,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
+        setIconImage(ShareHelper.APP_ICON);
     }
 
     /**
@@ -40,14 +43,14 @@ public class MainJFrame extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItem2 = new javax.swing.JMenuItem();
         mnuThongKe = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        jMenu1 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
         jMenuItem5 = new javax.swing.JMenuItem();
         mnuTroGiup = new javax.swing.JMenu();
         mniHuongDan = new javax.swing.JMenuItem();
-        jSeparator7 = new javax.swing.JPopupMenu.Separator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ NHÂN SỰ");
@@ -65,7 +68,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         mniDangXuat.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         mniDangXuat.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        mniDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/polypro/icon/Exit.png"))); // NOI18N
+        mniDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Exit.png"))); // NOI18N
         mniDangXuat.setText("Đăng xuất");
         mniDangXuat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +80,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         mniKetThuc.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, 0));
         mniKetThuc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        mniKetThuc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/polypro/icon/Stop.png"))); // NOI18N
+        mniKetThuc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Stop.png"))); // NOI18N
         mniKetThuc.setText("Kết thúc");
         mniKetThuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +95,7 @@ public class MainJFrame extends javax.swing.JFrame {
         mnuQuanLy.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         mniQLNhanVien.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        mniQLNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/polypro/icon/User group.png"))); // NOI18N
+        mniQLNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/User group.png"))); // NOI18N
         mniQLNhanVien.setText("Nhân viên");
         mniQLNhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,13 +106,13 @@ public class MainJFrame extends javax.swing.JFrame {
         mnuQuanLy.add(jSeparator1);
 
         jMenuItem1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/polypro/icon/Clien list.png"))); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Clien list.png"))); // NOI18N
         jMenuItem1.setText("Phòng ban");
         mnuQuanLy.add(jMenuItem1);
         mnuQuanLy.add(jSeparator2);
 
         jMenuItem2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/polypro/icon/Dollar.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Dollar.png"))); // NOI18N
         jMenuItem2.setText("Tiền lương");
         mnuQuanLy.add(jMenuItem2);
 
@@ -118,20 +121,23 @@ public class MainJFrame extends javax.swing.JFrame {
         mnuThongKe.setText("THỐNG KÊ");
         mnuThongKe.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jMenuItem3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/polypro/icon/Price list.png"))); // NOI18N
-        jMenuItem3.setText("Lương theo phòng");
-        mnuThongKe.add(jMenuItem3);
-        mnuThongKe.add(jSeparator5);
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Dollar.png"))); // NOI18N
+        jMenu1.setText("Lương");
 
-        jMenuItem4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/polypro/icon/Payment.png"))); // NOI18N
-        jMenuItem4.setText("Tổng lương ");
-        mnuThongKe.add(jMenuItem4);
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Boy.png"))); // NOI18N
+        jMenuItem4.setText("Lương từng nhân viên");
+        jMenu1.add(jMenuItem4);
+        jMenu1.add(jSeparator3);
+
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Box.png"))); // NOI18N
+        jMenuItem7.setText("Lương từng phòng ban");
+        jMenu1.add(jMenuItem7);
+
+        mnuThongKe.add(jMenu1);
         mnuThongKe.add(jSeparator6);
 
         jMenuItem5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/polypro/icon/Calendar.png"))); // NOI18N
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Calendar.png"))); // NOI18N
         jMenuItem5.setText("Ngày công");
         mnuThongKe.add(jMenuItem5);
 
@@ -142,7 +148,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         mniHuongDan.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         mniHuongDan.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        mniHuongDan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/polypro/icon/Help.png"))); // NOI18N
+        mniHuongDan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Help.png"))); // NOI18N
         mniHuongDan.setText("Hướng dẫn");
         mniHuongDan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +156,6 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
         mnuTroGiup.add(mniHuongDan);
-        mnuTroGiup.add(jSeparator7);
 
         jMenuBar1.add(mnuTroGiup);
 
@@ -232,18 +237,18 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
-    private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
-    private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JLabel lblNoiDung;
     private javax.swing.JMenuItem mniDangXuat;
     private javax.swing.JMenuItem mniHuongDan;
