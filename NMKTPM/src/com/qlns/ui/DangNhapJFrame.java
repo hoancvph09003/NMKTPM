@@ -5,6 +5,8 @@
  */
 package com.qlns.ui;
 
+import com.qlns.helper.ShareHelper;
+
 /**
  *
  * @author Viet Anh
@@ -15,6 +17,8 @@ public class DangNhapJFrame extends javax.swing.JFrame {
      * Creates new form DangNhapJFrame
      */
     public DangNhapJFrame() {
+        
+        setIconImage(ShareHelper.APP_ICON);
         initComponents();
     }
 
@@ -38,6 +42,7 @@ public class DangNhapJFrame extends javax.swing.JFrame {
         btnThoat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ĐĂNG NHẬP");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/o.png"))); // NOI18N
 
