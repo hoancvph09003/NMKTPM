@@ -5,17 +5,20 @@
  */
 package com.qlns.ui;
 
+import com.qlns.helper.ShareHelper;
+
 /**
  *
- * @author TaoXuanDang
+ * @author Hoanf
  */
-public class QLNhanVienJframe extends javax.swing.JPanel {
+public class QLNhanVien extends javax.swing.JFrame {
 
     /**
-     * Creates new form QLNVJframe
+     * Creates new form QLNhanVien
      */
-    public QLNhanVienJframe() {
+    public QLNhanVien() {
         initComponents();
+        setIconImage(ShareHelper.APP_ICON);
     }
 
     /**
@@ -61,7 +64,8 @@ public class QLNhanVienJframe extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(850, 650));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("QUẢN LÝ NHÂN VIÊN");
 
         jPanel1.setPreferredSize(new java.awt.Dimension(100, 13));
 
@@ -134,9 +138,6 @@ public class QLNhanVienJframe extends javax.swing.JPanel {
         ));
         jTable1.setPreferredSize(new java.awt.Dimension(800, 64));
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(6).setResizable(false);
-        }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -205,7 +206,7 @@ public class QLNhanVienJframe extends javax.swing.JPanel {
         jButton1.setText("Thêm");
         jButton1.setPreferredSize(new java.awt.Dimension(90, 50));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Update.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Edit.png"))); // NOI18N
         jButton2.setText("Sửa");
         jButton2.setPreferredSize(new java.awt.Dimension(90, 50));
 
@@ -315,8 +316,8 @@ public class QLNhanVienJframe extends javax.swing.JPanel {
 
         jTabbedPane4.addTab("CẬP NHẬT NHÂN VIÊN", jPanel4);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
@@ -334,12 +335,48 @@ public class QLNhanVienJframe extends javax.swing.JPanel {
                 .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(QLNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(QLNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(QLNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(QLNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new QLNhanVien().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
