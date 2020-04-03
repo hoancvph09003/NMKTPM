@@ -5,20 +5,17 @@
  */
 package com.qlns.ui;
 
-import com.qlns.helper.ShareHelper;
-
 /**
  *
  * @author Hoanf
  */
-public class ThongKe extends javax.swing.JFrame {
+public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ThongKe
+     * Creates new form ThongKeJInternalFrame
      */
-    public ThongKe() {
+    public ThongKeJInternalFrame() {
         initComponents();
-        setIconImage(ShareHelper.APP_ICON);
     }
 
     /**
@@ -62,9 +59,6 @@ public class ThongKe extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNgayCong = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("THỐNG KÊ");
-
         lblThongKeLuongNV.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         lblThongKeLuongNV.setForeground(new java.awt.Color(0, 0, 255));
         lblThongKeLuongNV.setText("THỐNG KÊ LƯƠNG TỪNG NHÂN VIÊN");
@@ -105,7 +99,7 @@ public class ThongKe extends javax.swing.JFrame {
         pnlLuongNhanVienLayout.setHorizontalGroup(
             pnlLuongNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLuongNhanVienLayout.createSequentialGroup()
-                .addGap(0, 35, Short.MAX_VALUE)
+                .addGap(0, 19, Short.MAX_VALUE)
                 .addComponent(pnlTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLuongNhanVienLayout.createSequentialGroup()
@@ -186,7 +180,7 @@ public class ThongKe extends javax.swing.JFrame {
         pnlTongLuongLayout.setHorizontalGroup(
             pnlTongLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTongLuongLayout.createSequentialGroup()
-                .addGap(0, 35, Short.MAX_VALUE)
+                .addGap(0, 19, Short.MAX_VALUE)
                 .addComponent(pnlTableTL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTongLuongLayout.createSequentialGroup()
@@ -269,7 +263,7 @@ public class ThongKe extends javax.swing.JFrame {
             .addGroup(pnlNgayCongLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlNgayCongNC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNgayCongLayout.createSequentialGroup()
                 .addGroup(pnlNgayCongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlNgayCongLayout.createSequentialGroup()
@@ -315,7 +309,7 @@ public class ThongKe extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tab)
+                .addComponent(tab, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -323,46 +317,12 @@ public class ThongKe extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(tab, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ThongKe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ThongKe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ThongKe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ThongKe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ThongKe().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnXuatBaoCao;
