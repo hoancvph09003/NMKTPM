@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/model/NhanVien.java</file>
+            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/dao/ChucVuDAO.java</file>
+            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/ui/QLPhongBanJInternalFrame.java</file>
+            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/helper/DateHelper.java</file>
+            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/dao/NhanVienDAO.java</file>
+            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/model/PhongBan.java</file>
+            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/ui/Main.java</file>
+        </group>
     </open-files>
 </project-private>

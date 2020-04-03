@@ -19,6 +19,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         setIconImage(ShareHelper.APP_ICON);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -30,7 +31,7 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblNoiDung = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuHeThong = new javax.swing.JMenu();
         mniDangXuat = new javax.swing.JMenuItem();
@@ -55,9 +56,20 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ NHÂN SỰ");
 
-        lblNoiDung.setForeground(new java.awt.Color(255, 255, 0));
-        lblNoiDung.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNoiDung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/icon2.png"))); // NOI18N
+        jDesktopPane1.setBackground(new java.awt.Color(0, 204, 255));
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 660, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jDesktopPane1, java.awt.BorderLayout.CENTER);
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenuBar1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -108,12 +120,22 @@ public class Main extends javax.swing.JFrame {
         jMenuItem1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Clien list.png"))); // NOI18N
         jMenuItem1.setText("Phòng ban");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         mnuQuanLy.add(jMenuItem1);
         mnuQuanLy.add(jSeparator2);
 
         jMenuItem2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Dollar.png"))); // NOI18N
         jMenuItem2.setText("Tiền lương");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         mnuQuanLy.add(jMenuItem2);
 
         jMenuBar1.add(mnuQuanLy);
@@ -161,27 +183,6 @@ public class Main extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(174, 174, 174)
-                    .addComponent(lblNoiDung, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
-                    .addGap(175, 175, 175)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(122, 122, 122)
-                    .addComponent(lblNoiDung, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(83, Short.MAX_VALUE)))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -191,6 +192,9 @@ public class Main extends javax.swing.JFrame {
 
     private void mniQLNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniQLNhanVienActionPerformed
         // TODO add your handling code here:
+        QLNhanVienJInternalFrame nv = new QLNhanVienJInternalFrame();
+        jDesktopPane1.add(nv);
+        nv.setVisible(true);
     }//GEN-LAST:event_mniQLNhanVienActionPerformed
 
     private void mniHuongDanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniHuongDanActionPerformed
@@ -200,6 +204,20 @@ public class Main extends javax.swing.JFrame {
     private void mniDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniDangXuatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mniDangXuatActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        QLPhongBanJInternalFrame pb = new QLPhongBanJInternalFrame();
+        jDesktopPane1.add(pb);
+        pb.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        QLLuongThuongJInternalFrame lt = new QLLuongThuongJInternalFrame();
+        jDesktopPane1.add(lt);
+        lt.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,6 +255,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -249,7 +268,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator6;
-    private javax.swing.JLabel lblNoiDung;
     private javax.swing.JMenuItem mniDangXuat;
     private javax.swing.JMenuItem mniHuongDan;
     private javax.swing.JMenuItem mniKetThuc;
