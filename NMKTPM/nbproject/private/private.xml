@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/model/NhanVien.java</file>
-            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/dao/ChucVuDAO.java</file>
-            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/ui/QLPhongBanJInternalFrame.java</file>
-            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/helper/DateHelper.java</file>
-            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/dao/NhanVienDAO.java</file>
-            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/model/PhongBan.java</file>
-            <file>file:/F:/NMKTPM/NMKTPM/NMKTPM/src/com/qlns/ui/Main.java</file>
+            <file>file:/C:/Users/Hoanf/OneDrive/Desktop/NMKTPM/NMKTPM/src/com/qlns/ui/QLLuongThuongJInternalFrame.java</file>
+            <file>file:/C:/Users/Hoanf/OneDrive/Desktop/NMKTPM/NMKTPM/src/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Hoanf/OneDrive/Desktop/NMKTPM/NMKTPM/src/com/qlns/ui/Main.java</file>
+            <file>file:/C:/Users/Hoanf/OneDrive/Desktop/NMKTPM/NMKTPM/src/com/qlns/util/HibernateUtil.java</file>
         </group>
     </open-files>
 </project-private>

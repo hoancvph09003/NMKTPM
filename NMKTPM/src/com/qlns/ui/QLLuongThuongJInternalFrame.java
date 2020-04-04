@@ -59,6 +59,10 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         btnLamMoi = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tháng 1" }));
