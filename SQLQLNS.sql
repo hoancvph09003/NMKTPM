@@ -1,4 +1,4 @@
-if OBJECT_ID('QLNS') is not null
+﻿if OBJECT_ID('QLNS') is not null
 drop database QLNS
 go
 
@@ -15,8 +15,12 @@ go
 Create table PhongBan(
 	maPhongBan varchar(6) not null,
 	tenPhongBan nvarchar(50) not null,
+	mota nvarchar(200) null,
 	Constraint PK_PhongBan Primary key (maPhongBan)
 )
+
+insert into PhongBan(maPhongBan, tenPhongBan, mota) values  ('KT', N'Kinh Tế', '1231')
+insert into PhongBan(maPhongBan, tenPhongBan, mota) values  ('NS', N'Nhân sự', '32131')
 
 if OBJECT_ID('ChucVu') is not null
 drop table ChucVu
@@ -27,6 +31,11 @@ Create table ChucVu(
 	chucVu nvarchar(50) not null,
 	Constraint PK_ChucVu Primary key (maChucVu)
 )
+
+insert into ChucVu(maChucVu, chucVu) values ('TP', 'Trưởng phòng')
+insert into ChucVu(maChucVu, chucVu) values ('NV', 'Nhân viên')
+insert into ChucVu(maChucVu, chucVu) values ('GD', 'Giám đốc')
+insert into ChucVu(maChucVu, chucVu) values ('BV', 'Bảo vệ')
 
 if OBJECT_ID('NhanVien') is not null
 drop table NhanVien
@@ -46,6 +55,7 @@ Create table NhanVien(
 	Constraint FK_NhanVien_PhongBan Foreign key (maPhongBan) references PhongBan(maPhongBan),
 	Constraint FK_NhanVien_ChucVu Foreign key (maChucVu) references ChucVu(maChucVu)
 )
+insert into NhanVien(maNhanVien, matKhau, tenNhanVien, maPhongBan, maChucVu, luongCoBan, ngaySinh, diaChi, email) values ('NV01', 'quan','Hoang Quan', 'KT', 'TP', 1000000, '1-1-1998','Thai Binh','a@gmail.com')
 
 if OBJECT_ID('LuongThuong') is not null
 drop table LuongThuong
@@ -61,3 +71,5 @@ Create table LuongThuong(
 	Constraint PK_LuongThuong Primary key (maTinhLuong),
 	Constraint FK_LuongThuong_NhanVien Foreign key (maNhanVien) references NhanVien(maNhanVien)
 )
+
+insert into LuongThuong (maNhanVien, ngayCong, tangCa, tienThuong, tienPhat) values ('NV01', 20, 10, 100000, 50000)
