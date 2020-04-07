@@ -23,7 +23,7 @@ public class PhongBanDAO {
         Session session = factory.getCurrentSession();
         session.beginTransaction();
         try {
-            String hql = "SELECT tenPhongBan from PhongBan";
+            String hql = "from PhongBan";
             Query query = session.createQuery(hql);
             list = query.list();
         } catch (Exception e) {
