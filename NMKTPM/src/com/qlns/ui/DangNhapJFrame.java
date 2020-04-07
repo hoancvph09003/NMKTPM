@@ -49,6 +49,9 @@ public class DangNhapJFrame extends javax.swing.JFrame {
                         DialogHelper.alert(this, "Sai mật khẩu!");
                     }
                 }
+                else{
+                    DialogHelper.alert(this, "ID không tồn tại!");
+                }
             }
         }
         catch(Exception e){
