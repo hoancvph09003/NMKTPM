@@ -6,6 +6,7 @@
 package com.qlns.ui;
 
 import com.qlns.helper.ShareHelper;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -22,6 +23,11 @@ public class Main extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    public void fc(JInternalFrame fc){
+        jDesktopPane1.add(fc);
+        fc.setVisible(true);
+        fc.setLocation((jDesktopPane1.getWidth() - fc.getWidth())/2,(jDesktopPane1.getHeight()-fc.getHeight())/2);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,16 +46,16 @@ public class Main extends javax.swing.JFrame {
         mnuQuanLy = new javax.swing.JMenu();
         mniQLNhanVien = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mniQLPhongBan = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mniQLTienLuong = new javax.swing.JMenuItem();
         mnuThongKe = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mniLuongNhanVien = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        mniLuongPhongBan = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        mniNgayCong = new javax.swing.JMenuItem();
         mnuTroGiup = new javax.swing.JMenu();
         mniHuongDan = new javax.swing.JMenuItem();
 
@@ -117,26 +123,26 @@ public class Main extends javax.swing.JFrame {
         mnuQuanLy.add(mniQLNhanVien);
         mnuQuanLy.add(jSeparator1);
 
-        jMenuItem1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Clien list.png"))); // NOI18N
-        jMenuItem1.setText("Phòng ban");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mniQLPhongBan.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        mniQLPhongBan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Clien list.png"))); // NOI18N
+        mniQLPhongBan.setText("Phòng ban");
+        mniQLPhongBan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mniQLPhongBanActionPerformed(evt);
             }
         });
-        mnuQuanLy.add(jMenuItem1);
+        mnuQuanLy.add(mniQLPhongBan);
         mnuQuanLy.add(jSeparator2);
 
-        jMenuItem2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Dollar.png"))); // NOI18N
-        jMenuItem2.setText("Tiền lương");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mniQLTienLuong.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        mniQLTienLuong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Dollar.png"))); // NOI18N
+        mniQLTienLuong.setText("Tiền lương");
+        mniQLTienLuong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                mniQLTienLuongActionPerformed(evt);
             }
         });
-        mnuQuanLy.add(jMenuItem2);
+        mnuQuanLy.add(mniQLTienLuong);
 
         jMenuBar1.add(mnuQuanLy);
 
@@ -146,22 +152,22 @@ public class Main extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Dollar.png"))); // NOI18N
         jMenu1.setText("Lương");
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Boy.png"))); // NOI18N
-        jMenuItem4.setText("Lương từng nhân viên");
-        jMenu1.add(jMenuItem4);
+        mniLuongNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Boy.png"))); // NOI18N
+        mniLuongNhanVien.setText("Lương từng nhân viên");
+        jMenu1.add(mniLuongNhanVien);
         jMenu1.add(jSeparator3);
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Box.png"))); // NOI18N
-        jMenuItem7.setText("Lương từng phòng ban");
-        jMenu1.add(jMenuItem7);
+        mniLuongPhongBan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Box.png"))); // NOI18N
+        mniLuongPhongBan.setText("Lương từng phòng ban");
+        jMenu1.add(mniLuongPhongBan);
 
         mnuThongKe.add(jMenu1);
         mnuThongKe.add(jSeparator6);
 
-        jMenuItem5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Calendar.png"))); // NOI18N
-        jMenuItem5.setText("Ngày công");
-        mnuThongKe.add(jMenuItem5);
+        mniNgayCong.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        mniNgayCong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Calendar.png"))); // NOI18N
+        mniNgayCong.setText("Ngày công");
+        mnuThongKe.add(mniNgayCong);
 
         jMenuBar1.add(mnuThongKe);
 
@@ -193,7 +199,7 @@ public class Main extends javax.swing.JFrame {
     private void mniQLNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniQLNhanVienActionPerformed
         // TODO add your handling code here:
         QLNhanVienJInternalFrame nv = new QLNhanVienJInternalFrame();
-        jDesktopPane1.add(nv);
+        fc(nv);
         nv.setVisible(true);
     }//GEN-LAST:event_mniQLNhanVienActionPerformed
 
@@ -205,19 +211,19 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mniDangXuatActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mniQLPhongBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniQLPhongBanActionPerformed
         // TODO add your handling code here:
         QLPhongBanJInternalFrame pb = new QLPhongBanJInternalFrame();
-        jDesktopPane1.add(pb);
+        fc(pb);
         pb.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mniQLPhongBanActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void mniQLTienLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniQLTienLuongActionPerformed
         // TODO add your handling code here:
         QLLuongThuongJInternalFrame lt = new QLLuongThuongJInternalFrame();
-        jDesktopPane1.add(lt);
+        fc(lt);
         lt.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_mniQLTienLuongActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,11 +264,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -271,7 +272,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem mniDangXuat;
     private javax.swing.JMenuItem mniHuongDan;
     private javax.swing.JMenuItem mniKetThuc;
+    private javax.swing.JMenuItem mniLuongNhanVien;
+    private javax.swing.JMenuItem mniLuongPhongBan;
+    private javax.swing.JMenuItem mniNgayCong;
     private javax.swing.JMenuItem mniQLNhanVien;
+    private javax.swing.JMenuItem mniQLPhongBan;
+    private javax.swing.JMenuItem mniQLTienLuong;
     private javax.swing.JMenu mnuHeThong;
     private javax.swing.JMenu mnuQuanLy;
     private javax.swing.JMenu mnuThongKe;

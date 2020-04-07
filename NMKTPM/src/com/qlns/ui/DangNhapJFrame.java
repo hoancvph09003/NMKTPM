@@ -5,7 +5,10 @@
  */
 package com.qlns.ui;
 
+import com.qlns.dao.NhanVienDAO;
+import com.qlns.helper.DialogHelper;
 import com.qlns.helper.ShareHelper;
+import com.qlns.model.NhanVien;
 
 /**
  *
@@ -16,12 +19,48 @@ public class DangNhapJFrame extends javax.swing.JFrame {
     /**
      * Creates new form DangNhapJFrame
      */
+    NhanVienDAO dao = new NhanVienDAO();
+    
     public DangNhapJFrame() {
         
         setIconImage(ShareHelper.APP_ICON);
         initComponents();
+        setLocationRelativeTo(this);
     }
-
+    
+    void login(){
+        String id = txtUserName.getText();
+        String pass = new String(txtPassWord.getPassword());
+        try{
+            if(id.isEmpty()|pass.isEmpty()){
+                DialogHelper.alert(this, "Vui lòng nhập id và password!");
+            }
+            else{
+                NhanVien nv = dao.findById(id);
+                if(nv != null){
+                    String mk = nv.getMatKhau();
+                    if(pass.equals(mk)){
+                        ShareHelper.USER = nv;
+                        DialogHelper.alert(this, "Đăng nhập thành công!");
+                        this.dispose();
+                        openMain();
+                    }
+                    else{
+                        DialogHelper.alert(this, "Sai mật khẩu!");
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            DialogHelper.alert(this, "Lỗi đăng nhập!");
+        }
+    }
+    
+    void openMain(){
+        Main main = new Main();
+        main.setVisible(true);
+        main.setLocationRelativeTo(this);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,8 +95,18 @@ public class DangNhapJFrame extends javax.swing.JFrame {
         jLabel4.setText("Password :");
 
         btnDangNhap.setText("Đăng Nhập");
+        btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangNhapActionPerformed(evt);
+            }
+        });
 
         btnThoat.setText("Thoát");
+        btnThoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThoatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,6 +181,16 @@ public class DangNhapJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
+        // TODO add your handling code here:
+        this.login();
+    }//GEN-LAST:event_btnDangNhapActionPerformed
+
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnThoatActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,7 @@
  */
 package com.qlns.helper;
 
+import com.qlns.model.NhanVien;
 import java.awt.Image;
 import java.io.File;
 import java.nio.file.Files;
@@ -61,4 +62,14 @@ public class ShareHelper {
         return new ImageIcon(path.getAbsolutePath());
     }
 
+    public static NhanVien USER = null;
+    
+
+    public static void logoff() {
+        ShareHelper.USER = null;
+    }
+
+    public static boolean authenticated() {
+        return ShareHelper.USER != null;
+    }
 }

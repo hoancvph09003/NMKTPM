@@ -12,7 +12,6 @@
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="com.qlns.model.NhanVien"/>
     <mapping class="com.qlns.model.LuongThuong"/>
-    <mapping class="com.qlns.model.test"/>
     <mapping class="com.qlns.model.PhongBan"/>
     <mapping class="com.qlns.model.ChucVu"/>
   </session-factory>
