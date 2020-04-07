@@ -602,7 +602,7 @@ public class QLPhongBanJInternalFrame extends javax.swing.JInternalFrame {
         try {
             List<PhongBan> listPB = pbDAO.getListPhongBan();
             for (PhongBan pb : listPB) {
-                model.addRow(new Object[]{pb.getMaPhongBan(),
+                model.addRow(new Object[]{
                     pb.getTenPhongBan(), pb.getMoTa()});
             }
         } catch (Exception e) {

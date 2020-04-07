@@ -8,7 +8,10 @@ package com.qlns.ui;
 import com.qlns.dao.LuongThuongDAO;
 import com.qlns.model.LuongThuong;
 import com.qlns.model.LuongThuongFake;
+import com.qlns.model.NhanVien;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,7 +19,9 @@ import javax.swing.table.DefaultTableModel;
  * @author Hoanf
  */
 public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
+
     LuongThuongDAO ltDAO = new LuongThuongDAO();
+
     /**
      * Creates new form QLLuongThuongJInternalFrame
      */
@@ -58,6 +63,8 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         btnXoa = new javax.swing.JButton();
         btnLamMoi = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtPhongBan = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -108,7 +115,7 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã nhân viên", "Họ tên", "Phòng ban", "Số ngày công", "Tăng ca", "Lương thưởng", "Phạt", "Lương cơ bản"
+                "Mã nhân viên", "Họ tên", "Phòng ban", "Số ngày công", "Tăng ca", "Thưởng", "Phạt", "Lương cơ bản"
             }
         ));
         jScrollPane1.setViewportView(tblLuongThuong);
@@ -138,7 +145,7 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -155,7 +162,7 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Tăng ca");
 
-        jLabel7.setText("Lương thưởng");
+        jLabel7.setText("Thưởng");
 
         btnSua.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Edit.png"))); // NOI18N
@@ -172,6 +179,8 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         btnThem.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Add.png"))); // NOI18N
         btnThem.setText("Thêm");
+
+        jLabel2.setText("Phòng ban");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,13 +199,15 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
                         .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtManv, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNgayCong, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtManv, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(txtNgayCong, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
                                 .addComponent(jLabel1))
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(txtPhongBan))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPhat, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,13 +228,11 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPhat, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(132, 132, 132))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -244,13 +253,19 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLuongThuong, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNgayCong, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(251, 251, 251)))
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel2)
+                        .addGap(33, 33, 33)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtPhat, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(txtPhongBan))
+                .addGap(132, 132, 132)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CẬP NHẬP LƯƠNG THƯỞNG", jPanel1);
@@ -283,6 +298,7 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -299,32 +315,28 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtManv;
     private javax.swing.JTextField txtNgayCong;
     private javax.swing.JTextField txtPhat;
+    private javax.swing.JTextField txtPhongBan;
     private javax.swing.JTextField txtTangCa;
     private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
-    void init(){
+    void init() {
         this.loadData();
     }
+
     void loadData() {
         DefaultTableModel model = (DefaultTableModel) tblLuongThuong.getModel();
         model.setRowCount(0);
-//        try {
-            List<LuongThuongFake> listLT = (List<LuongThuongFake>)ltDAO.getListLuongThuong();
-            for (LuongThuongFake lt : listLT) {
+        try {
+            List<LuongThuong> listLT = (List<LuongThuong>) (Object) ltDAO.getListLuongThuong();
+            for (LuongThuong nv : listLT) {
                 model.addRow(new Object[]{
-                    lt.getMaNhanVien(),
-                    lt.getHoTen(),
-                    lt.getPhongBan(),
-                    lt.getNgayCong(),
-                    lt.getTangCa(),
-                    lt.getTienThuong(),
-                    lt.getTienPhat(),
-                    lt.getLuongCoBan()
+                    nv.getNhanVien().getMaNhanVien()
                 });
             }
-//        } catch (Exception e) {
-//            System.out.println("" + e);
-//        }
+
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
     }
 
 }
