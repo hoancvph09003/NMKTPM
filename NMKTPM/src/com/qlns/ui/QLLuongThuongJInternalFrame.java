@@ -10,6 +10,7 @@ import com.qlns.model.LuongThuong;
 import com.qlns.model.LuongThuongFake;
 import com.qlns.model.NhanVien;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
@@ -327,10 +328,32 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) tblLuongThuong.getModel();
         model.setRowCount(0);
         try {
-            List<LuongThuong> listLT = (List<LuongThuong>) (Object) ltDAO.getListLuongThuong();
-            for (LuongThuong nv : listLT) {
+            List<Object[]> listLT = ltDAO.getListLuongThuong();
+            List<LuongThuongFake> listLTF = new ArrayList<>();
+            Iterator it = listLT.iterator();
+            while(it.hasNext()){
+                Object[] line = (Object[]) it.next();
+                LuongThuongFake fake = new LuongThuongFake();
+                fake.setMaNhanVien((String) line[0]);
+                fake.setHoTen((String) line[1]);
+                fake.setLuongCoBan((Double) line[2]);
+                fake.setPhongBan((String) line[3]);
+                fake.setNgayCong((Integer) line[4]);
+                fake.setTangCa((Integer) line[5]);
+                fake.setTienThuong((Double) line[6]);
+                fake.setTienPhat((Double) line[7]);
+                listLTF.add(fake);
+            }
+            for (LuongThuongFake listLTF1 : listLTF) {
                 model.addRow(new Object[]{
-                    nv.getNhanVien().getMaNhanVien()
+                    listLTF1.getMaNhanVien(),
+                    listLTF1.getHoTen(),
+                    listLTF1.getLuongCoBan(),
+                    listLTF1.getPhongBan(),
+                    listLTF1.getNgayCong(),
+                    listLTF1.getTangCa(),
+                    listLTF1.getTienThuong(),
+                    listLTF1.getTienPhat()
                 });
             }
 
