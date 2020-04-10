@@ -6,13 +6,18 @@
 package com.qlns.ui;
 
 import com.qlns.dao.LuongThuongDAO;
+import com.qlns.dao.NhanVienDAO;
+import com.qlns.dao.PhongBanDAO;
+import com.qlns.helper.DialogHelper;
 import com.qlns.model.LuongThuong;
-import com.qlns.model.LuongThuongFake;
+import com.qlns.model.BangLuongThuong;
 import com.qlns.model.NhanVien;
+import com.qlns.model.PhongBan;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,7 +27,8 @@ import javax.swing.table.DefaultTableModel;
 public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
 
     LuongThuongDAO ltDAO = new LuongThuongDAO();
-
+    PhongBanDAO pbDAO = new PhongBanDAO();
+    NhanVienDAO nvDAO = new NhanVienDAO();
     /**
      * Creates new form QLLuongThuongJInternalFrame
      */
@@ -51,7 +57,6 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         tblLuongThuong = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtManv = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtNgayCong = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -65,7 +70,8 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         btnLamMoi = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtPhongBan = new javax.swing.JTextField();
+        cboPhongBan = new javax.swing.JComboBox<>();
+        cboNV = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -159,6 +165,8 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Số ngày công");
 
+        txtNgayCong.setEditable(false);
+
         jLabel5.setText("Phạt");
 
         jLabel6.setText("Tăng ca");
@@ -183,6 +191,20 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Phòng ban");
 
+        cboPhongBan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboPhongBan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboPhongBanActionPerformed(evt);
+            }
+        });
+
+        cboNV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboNV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboNVActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -201,14 +223,14 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtManv, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addComponent(txtNgayCong, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
                                 .addComponent(jLabel1))
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
-                            .addComponent(txtPhongBan))
+                            .addComponent(cboPhongBan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cboNV, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPhat, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,7 +260,7 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtManv, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cboNV, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -259,14 +281,14 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
                         .addGap(33, 33, 33)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtPhat, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(txtPhongBan))
+                    .addComponent(cboPhongBan))
                 .addGap(132, 132, 132)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CẬP NHẬP LƯƠNG THƯỞNG", jPanel1);
@@ -291,12 +313,24 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cboPhongBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongBanActionPerformed
+        // TODO add your handling code here:
+        this.fillComboBoxNV();
+        
+    }//GEN-LAST:event_cboPhongBanActionPerformed
+
+    private void cboNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboNVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboNVActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JComboBox<String> cboNV;
+    private javax.swing.JComboBox<String> cboPhongBan;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -313,53 +347,85 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblLuongThuong;
     private javax.swing.JTextField txtLuongThuong;
-    private javax.swing.JTextField txtManv;
     private javax.swing.JTextField txtNgayCong;
     private javax.swing.JTextField txtPhat;
-    private javax.swing.JTextField txtPhongBan;
     private javax.swing.JTextField txtTangCa;
     private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
     void init() {
         this.loadData();
+        this.fillComboBox();
+        this.fillComboBoxNV();
     }
 
     void loadData() {
         DefaultTableModel model = (DefaultTableModel) tblLuongThuong.getModel();
         model.setRowCount(0);
-        try {
-            List<Object[]> listLT = ltDAO.getListLuongThuong();
-            List<LuongThuongFake> listLTF = new ArrayList<>();
-            Iterator it = listLT.iterator();
-            while(it.hasNext()){
-                Object[] line = (Object[]) it.next();
-                LuongThuongFake fake = new LuongThuongFake();
-                fake.setMaNhanVien((String) line[0]);
-                fake.setHoTen((String) line[1]);
-                fake.setLuongCoBan((Double) line[2]);
-                fake.setPhongBan((String) line[3]);
-                fake.setNgayCong((Integer) line[4]);
-                fake.setTangCa((Integer) line[5]);
-                fake.setTienThuong((Double) line[6]);
-                fake.setTienPhat((Double) line[7]);
-                listLTF.add(fake);
-            }
-            for (LuongThuongFake listLTF1 : listLTF) {
+        try { 
+            List<BangLuongThuong> listLT = ltDAO.getListLuongThuong();
+            
+            for (BangLuongThuong listLTF1 : listLT) {
                 model.addRow(new Object[]{
                     listLTF1.getMaNhanVien(),
                     listLTF1.getHoTen(),
-                    listLTF1.getLuongCoBan(),
                     listLTF1.getPhongBan(),
                     listLTF1.getNgayCong(),
                     listLTF1.getTangCa(),
                     listLTF1.getTienThuong(),
-                    listLTF1.getTienPhat()
+                    listLTF1.getTienPhat(),
+                    listLTF1.getLuongCoBan(),
                 });
             }
 
         } catch (Exception e) {
-            System.out.println("" + e);
+            System.out.println("Lỗi bảng quản lý lương!");
         }
     }
-
+    
+    void fillComboBox() {
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboPhongBan.getModel();
+        model.removeAllElements();
+        try {
+            List<PhongBan> list = pbDAO.getListPhongBan();
+            for (PhongBan pb : list) {
+                cboPhongBan.addItem(pb.getTenPhongBan());
+            }
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
+    
+    void fillComboBoxNV() {
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboNV.getModel();
+        model.removeAllElements();
+        try {
+            List<NhanVien> list = nvDAO.getListNhanVienPB((String)cboPhongBan.getSelectedItem());
+            for (NhanVien nv : list) {
+                cboNV.addItem(nv.getMaNhanVien());
+            }
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
+    
+    
+    LuongThuong getModel(){
+        LuongThuong model = new LuongThuong();
+        model.setNhanVien(nvDAO.findById((String)cboNV.getSelectedItem()));
+        model.setTangCa(Integer.parseInt(txtTangCa.getText()));
+        model.setNgayCong(Integer.parseInt(txtNgayCong.getText()));
+        model.setTienPhat(Double.parseDouble(txtPhat.getText()));
+        model.setTienThuong(Double.parseDouble(txtLuongThuong.getText()));
+        return model;
+    }
+    
+    
+    void setModel(LuongThuong model) {
+        txtLuongThuong.setText(String.valueOf(model.getTienThuong()));
+        txtNgayCong.setText(String.valueOf(model.getNgayCong()));
+        txtPhat.setText(String.valueOf(model.getTienPhat()));
+        txtTangCa.setText(String.valueOf(model.getTangCa()));
+        cboNV.setSelectedItem(model.getNhanVien().getMaNhanVien());
+    }
+    
 }

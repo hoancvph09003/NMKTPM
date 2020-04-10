@@ -5,8 +5,12 @@
  */
 package com.qlns.dao;
 
+import com.qlns.model.BangLuongPhongBan;
+import com.qlns.model.BangTKNhanVien;
 import com.qlns.model.PhongBan;
 import com.qlns.util.HibernateUtil;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -101,4 +105,29 @@ public class PhongBanDAO {
             session.close();
         }
     }
+    
+    public List<BangLuongPhongBan> getListTK(){
+        List<BangLuongPhongBan> listLP = new ArrayList<>();
+        SessionFactory factory = HibernateUtil.getSessionFactory();
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        String hql = "SELECT TL.maPhongBan,TL.tenPhongBan,SUM(TongLuong) as LuongTheoPhong FROM"
+                + "(SELECT nhanVien.phongBan.maPhongBan,nhanVien.phongBan.tenPhongBan, ngayCong*nhanVien.luongCoBan as TongLuong FROM LuongThuong l) as TL"
+                + "GROUP BY TL.maPhongBan,TL.tenPhongBan";
+        Query query = session.createQuery(hql);
+//        query.setParameter("tpb", tpb);
+        List<Object[]> list = query.list();
+        Iterator it = list.iterator();
+            while(it.hasNext()){
+                Object[] line = (Object[]) it.next();
+                BangLuongPhongBan lp = new BangLuongPhongBan();
+                lp.setMaPhongBan((String) line[0]);
+                lp.setTenPhongBan((String) line[1]);
+                lp.setLuongPhongBan((Double) line[2]);
+                listLP.add(lp);
+            }
+        session.close();
+        return listLP;
+    }
+    
 }

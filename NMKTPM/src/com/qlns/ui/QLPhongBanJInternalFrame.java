@@ -759,9 +759,9 @@ public class QLPhongBanJInternalFrame extends javax.swing.JInternalFrame {
             cvDAO.addChucVu(model);
             this.loadDataFormChucVu();
             this.clearChucVu();
-            DialogHelper.alert(this, "Thêm phòng ban thành công");
+            DialogHelper.alert(this, "Thêm chức vụ thành công");
         } catch (Exception e) {
-            DialogHelper.alert(this, "Thêm phòng ban thất bại");
+            DialogHelper.alert(this, "Thêm chức vụ thất bại");
         }
     }
     void updateChucVu(){
@@ -769,9 +769,9 @@ public class QLPhongBanJInternalFrame extends javax.swing.JInternalFrame {
         try {
             cvDAO.update(model);
             this.loadDataFormChucVu();
-            DialogHelper.alert(this, "Sửa phòng ban thành công");
+            DialogHelper.alert(this, "Sửa chức vụ thành công");
         } catch (Exception e) {
-            DialogHelper.alert(this, "Sửa phòng ban thất bại");
+            DialogHelper.alert(this, "Sửa chức vụ thất bại");
         }
     }
     void deleteChucVu(){
@@ -780,9 +780,9 @@ public class QLPhongBanJInternalFrame extends javax.swing.JInternalFrame {
             cvDAO.delete(model);
             this.loadDataFormChucVu();
             this.clearChucVu();
-            DialogHelper.alert(this, "Xóa phòng ban thành công");
+            DialogHelper.alert(this, "Xóa chức vụ thành công");
         } catch (Exception e) {
-            DialogHelper.alert(this, "Xóa phòng ban thất bại");
+            DialogHelper.alert(this, "Xóa chức vụ thất bại");
         }
     }
 

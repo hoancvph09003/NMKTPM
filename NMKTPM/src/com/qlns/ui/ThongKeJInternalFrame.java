@@ -5,19 +5,102 @@
  */
 package com.qlns.ui;
 
+import com.qlns.dao.NhanVienDAO;
+import com.qlns.dao.PhongBanDAO;
+import com.qlns.helper.DialogHelper;
+import com.qlns.model.BangLuongPhongBan;
+import com.qlns.model.BangTKNhanVien;
+import com.qlns.model.NhanVien;
+import com.qlns.model.PhongBan;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hoanf
  */
 public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
-
+    PhongBanDAO pbDAO = new PhongBanDAO();
+    NhanVienDAO nvDAO = new NhanVienDAO();
     /**
      * Creates new form ThongKeJInternalFrame
      */
     public ThongKeJInternalFrame() {
         initComponents();
+        fillComboBox();
+        fillComboBoxNC();
+        fillComboBoxTL();
+        loadTable((String)cboPhongBan.getSelectedItem());
     }
 
+    void fillComboBox() {
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboPhongBan.getModel();
+        model.removeAllElements();
+        try {
+            List<PhongBan> list = pbDAO.getListPhongBan();
+            for (PhongBan pb : list) {
+                cboPhongBan.addItem(pb.getTenPhongBan());
+            }
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
+    
+    void fillComboBoxTL() {
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboPhongBanTL.getModel();
+        model.removeAllElements();
+        try {
+            List<PhongBan> list = pbDAO.getListPhongBan();
+            for (PhongBan pb : list) {
+                cboPhongBanTL.addItem(pb.getTenPhongBan());
+            }
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
+    
+    void fillComboBoxNC() {
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboPhongBanNC.getModel();
+        model.removeAllElements();
+        try {
+            List<PhongBan> list = pbDAO.getListPhongBan();
+            for (PhongBan pb : list) {
+                cboPhongBanNC.addItem(pb.getTenPhongBan());
+            }
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Lỗi truy vấn dữ liệu!");
+        }
+    }
+    
+    void loadTable(String pb){
+        DefaultTableModel model = (DefaultTableModel) tblNhanVien.getModel();
+        model.setRowCount(0);
+        try {
+            List<BangTKNhanVien> listNV = nvDAO.getListTK(pb);
+            listNV.forEach((nv) -> {
+                model.addRow(new Object[]{
+                    nv.getMaNhanVien(), nv.getHoTen(), nv.getPhongBan(), nv.getTongLuong()});
+            });
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+    }
+    
+    void loadTablePB(){
+        DefaultTableModel model = (DefaultTableModel) tblTongLuong.getModel();
+        model.setRowCount(0);
+        try {
+            List<BangLuongPhongBan> listLP = pbDAO.getListTK();
+            listLP.forEach((lp) -> {
+                model.addRow(new Object[]{
+                    lp.getMaPhongBan(), lp.getTenPhongBan(), lp.getLuongPhongBan()});
+            });
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,6 +150,11 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
 
         cboPhongBan.setMinimumSize(new java.awt.Dimension(260, 30));
         cboPhongBan.setPreferredSize(new java.awt.Dimension(260, 30));
+        cboPhongBan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboPhongBanActionPerformed(evt);
+            }
+        });
 
         btnXuatBaoCao.setText("Xuất báo cáo");
         btnXuatBaoCao.setMaximumSize(new java.awt.Dimension(130, 40));
@@ -89,7 +177,15 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
             new String [] {
                 "MÃ NHÂN VIÊN", "TÊN NHÂN VIÊN", "PHÒNG BAN", "LƯƠNG"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tblNhanVien);
 
         pnlTable.add(jScrollPane2, java.awt.BorderLayout.CENTER);
@@ -144,6 +240,11 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
 
         cboPhongBanTL.setMinimumSize(new java.awt.Dimension(260, 30));
         cboPhongBanTL.setPreferredSize(new java.awt.Dimension(260, 30));
+        cboPhongBanTL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboPhongBanTLActionPerformed(evt);
+            }
+        });
 
         btnXuatBaoCaoTL.setText("Xuất báo cáo");
         btnXuatBaoCaoTL.setMaximumSize(new java.awt.Dimension(130, 40));
@@ -229,6 +330,11 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
 
         cboPhongBanNC.setMinimumSize(new java.awt.Dimension(260, 30));
         cboPhongBanNC.setPreferredSize(new java.awt.Dimension(260, 30));
+        cboPhongBanNC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboPhongBanNCActionPerformed(evt);
+            }
+        });
 
         btnXuatBaoCaoNC.setText("Xuất báo cáo");
         btnXuatBaoCaoNC.setMaximumSize(new java.awt.Dimension(130, 40));
@@ -309,7 +415,7 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tab, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
+                .addComponent(tab)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -322,6 +428,20 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cboPhongBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongBanActionPerformed
+        // TODO add your handling code here:
+        loadTable((String) cboPhongBan.getSelectedItem());
+    }//GEN-LAST:event_cboPhongBanActionPerformed
+
+    private void cboPhongBanNCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongBanNCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboPhongBanNCActionPerformed
+
+    private void cboPhongBanTLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPhongBanTLActionPerformed
+        // TODO add your handling code here:
+        loadTablePB();
+    }//GEN-LAST:event_cboPhongBanTLActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

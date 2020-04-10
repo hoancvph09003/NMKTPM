@@ -9,7 +9,7 @@ package com.qlns.model;
  *
  * @author Admin
  */
-public class LuongThuongFake {
+public class BangLuongThuong {
      private String maNhanVien;
      private String hoTen;
      private String phongBan;
@@ -19,10 +19,10 @@ public class LuongThuongFake {
      private Double tienPhat;
      private Double luongCoBan;
 
-    public LuongThuongFake() {
+    public BangLuongThuong() {
     }
 
-    public LuongThuongFake(String maNhanVien, String hoTen, String phongBan, Integer ngayCong, Integer tangCa, Double tienThuong, Double tienPhat,Double luongCoBan) {
+    public BangLuongThuong(String maNhanVien, String hoTen, String phongBan, Integer ngayCong, Integer tangCa, Double tienThuong, Double tienPhat,Double luongCoBan) {
         this.maNhanVien = maNhanVien;
         this.hoTen = hoTen;
         this.phongBan = phongBan;

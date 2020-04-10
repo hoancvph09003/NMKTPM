@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/ui/QLLuongThuongJInternalFrame.java</file>
             <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/ui/Main.java</file>
-            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/ui/QLNhanVienJInternalFrame.java</file>
-            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/model/LuongThuong.java</file>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/model/BangTKNhanVien.java</file>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/ui/ThongKeJInternalFrame.java</file>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/dao/NhanVienDAO.java</file>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/dao/PhongBanDAO.java</file>
         </group>
     </open-files>
 </project-private>

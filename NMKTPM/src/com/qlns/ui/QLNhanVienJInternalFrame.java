@@ -533,29 +533,31 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
             this.clear();
             DialogHelper.alert(this, "Thêm Nhân viên thành công");
         } catch (Exception e) {
-//            DialogHelper.alert(this, "Thêm phòng ban thất bại");
+            DialogHelper.alert(this, "Thêm nhân viên thất bại");
             System.out.println(""+e);
         }
     }
-//    void update(){
-//        PhongBan model = getModel();
-//        try {
-//            pbDAO.update(model);
-//            this.loadData();
-//            DialogHelper.alert(this, "Sửa phòng ban thành công");
-//        } catch (Exception e) {
-//            DialogHelper.alert(this, "Sửa phòng ban thất bại");
-//        }
-//    }
-//    void delete(){
-//        PhongBan model = getModel();
-//        try {
-//            pbDAO.delete(model);
-//            this.loadData();
-//            this.clear();
-//            DialogHelper.alert(this, "Xóa phòng ban thành công");
-//        } catch (Exception e) {
-//            DialogHelper.alert(this, "Xóa phòng ban thất bại");
-//        }
-//    }
+    void update(){
+        NhanVien model = getModel();
+        try {
+            nvDAO.update(model);
+            this.loadData();
+            DialogHelper.alert(this, "Thêm Nhân viên thành công");
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Thêm nhân viên thất bại");
+            System.out.println(""+e);
+        }
+    }
+    void delete(){
+        NhanVien model = getModel();
+        try {
+            nvDAO.delete(model);
+            this.loadData();
+            this.clear();
+            DialogHelper.alert(this, "Thêm Nhân viên thành công");
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Thêm nhân viên thất bại");
+            System.out.println(""+e);
+        }
+    }
 }

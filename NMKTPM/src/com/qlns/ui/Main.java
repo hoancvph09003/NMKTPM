@@ -154,11 +154,21 @@ public class Main extends javax.swing.JFrame {
 
         mniLuongNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Boy.png"))); // NOI18N
         mniLuongNhanVien.setText("Lương từng nhân viên");
+        mniLuongNhanVien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniLuongNhanVienActionPerformed(evt);
+            }
+        });
         jMenu1.add(mniLuongNhanVien);
         jMenu1.add(jSeparator3);
 
         mniLuongPhongBan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Box.png"))); // NOI18N
         mniLuongPhongBan.setText("Lương từng phòng ban");
+        mniLuongPhongBan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniLuongPhongBanActionPerformed(evt);
+            }
+        });
         jMenu1.add(mniLuongPhongBan);
 
         mnuThongKe.add(jMenu1);
@@ -200,7 +210,6 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         QLNhanVienJInternalFrame nv = new QLNhanVienJInternalFrame();
         fc(nv);
-        nv.setVisible(true);
     }//GEN-LAST:event_mniQLNhanVienActionPerformed
 
     private void mniHuongDanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniHuongDanActionPerformed
@@ -215,15 +224,25 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         QLPhongBanJInternalFrame pb = new QLPhongBanJInternalFrame();
         fc(pb);
-        pb.setVisible(true);
     }//GEN-LAST:event_mniQLPhongBanActionPerformed
 
     private void mniQLTienLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniQLTienLuongActionPerformed
         // TODO add your handling code here:
         QLLuongThuongJInternalFrame lt = new QLLuongThuongJInternalFrame();
         fc(lt);
-        lt.setVisible(true);
     }//GEN-LAST:event_mniQLTienLuongActionPerformed
+
+    private void mniLuongNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLuongNhanVienActionPerformed
+        // TODO add your handling code here:
+        ThongKeJInternalFrame tk = new ThongKeJInternalFrame();
+        fc(tk);
+    }//GEN-LAST:event_mniLuongNhanVienActionPerformed
+
+    private void mniLuongPhongBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLuongPhongBanActionPerformed
+        // TODO add your handling code here:
+        ThongKeJInternalFrame tk = new ThongKeJInternalFrame();
+        fc(tk);
+    }//GEN-LAST:event_mniLuongPhongBanActionPerformed
 
     /**
      * @param args the command line arguments

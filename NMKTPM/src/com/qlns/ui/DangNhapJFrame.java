@@ -5,6 +5,7 @@
  */
 package com.qlns.ui;
 
+import com.qlns.dao.LuongThuongDAO;
 import com.qlns.dao.NhanVienDAO;
 import com.qlns.helper.DialogHelper;
 import com.qlns.helper.ShareHelper;
@@ -19,7 +20,8 @@ public class DangNhapJFrame extends javax.swing.JFrame {
     /**
      * Creates new form DangNhapJFrame
      */
-    NhanVienDAO dao = new NhanVienDAO();
+    NhanVienDAO nvDAO = new NhanVienDAO();
+    LuongThuongDAO ltDAO = new LuongThuongDAO();
     
     public DangNhapJFrame() {
         
@@ -36,11 +38,12 @@ public class DangNhapJFrame extends javax.swing.JFrame {
                 DialogHelper.alert(this, "Vui lòng nhập id và password!");
             }
             else{
-                NhanVien nv = dao.findById(id);
+                NhanVien nv = nvDAO.findById(id);
                 if(nv != null){
                     String mk = nv.getMatKhau();
                     if(pass.equals(mk)){
                         ShareHelper.USER = nv;
+                        ltDAO.chamCong(nv.getMaNhanVien());
                         DialogHelper.alert(this, "Đăng nhập thành công!");
                         this.dispose();
                         openMain();
@@ -55,7 +58,7 @@ public class DangNhapJFrame extends javax.swing.JFrame {
             }
         }
         catch(Exception e){
-            DialogHelper.alert(this, "Lỗi đăng nhập!");
+            DialogHelper.alert(this, "Lỗi đăng nhập! " + e);
         }
     }
     

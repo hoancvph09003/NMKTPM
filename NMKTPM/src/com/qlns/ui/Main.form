@@ -142,6 +142,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng t&#x1eeb;ng nh&#xe2;n vi&#xea;n"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniLuongNhanVienActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator3">
                 </MenuItem>
@@ -152,6 +155,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng t&#x1eeb;ng ph&#xf2;ng ban"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniLuongPhongBanActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
