@@ -321,6 +321,7 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
 
     private void cboNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboNVActionPerformed
         // TODO add your handling code here:
+        this.setModel((LuongThuong)cboNV.getModel().getSelectedItem());
     }//GEN-LAST:event_cboNVActionPerformed
 
 
@@ -388,7 +389,7 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         try {
             List<PhongBan> list = pbDAO.getListPhongBan();
             for (PhongBan pb : list) {
-                cboPhongBan.addItem(pb.getTenPhongBan());
+                cboPhongBan.addItem(pb.getMaPhongBan());
             }
         } catch (Exception e) {
             DialogHelper.alert(this, "Lỗi truy vấn dữ liệu!");
@@ -401,7 +402,7 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         try {
             List<NhanVien> list = nvDAO.getListNhanVienPB((String)cboPhongBan.getSelectedItem());
             for (NhanVien nv : list) {
-                cboNV.addItem(nv.getMaNhanVien());
+                cboNV.addItem(nv);
             }
         } catch (Exception e) {
             DialogHelper.alert(this, "Lỗi truy vấn dữ liệu!");
@@ -426,6 +427,46 @@ public class QLLuongThuongJInternalFrame extends javax.swing.JInternalFrame {
         txtPhat.setText(String.valueOf(model.getTienPhat()));
         txtTangCa.setText(String.valueOf(model.getTangCa()));
         cboNV.setSelectedItem(model.getNhanVien().getMaNhanVien());
+    }
+    
+    void clear(){
+        setModel(new LuongThuong());
+    }
+    
+    void add() {
+        LuongThuong model = getModel();
+        try {
+            ltDAO.add(model);
+            this.loadData();
+            this.clear();
+            DialogHelper.alert(this, "Thêm bảng lương thành công");
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Thêm bảng lương thất bại");
+            System.out.println(""+e);
+        }
+    }
+    void update(){
+        LuongThuong model = getModel();
+        try {
+            ltDAO.update(model);
+            this.loadData();
+            DialogHelper.alert(this, "Sửa bảng lương thành công");
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Sửa bảng lương thất bại");
+            System.out.println(""+e);
+        }
+    }
+    void delete(){
+        LuongThuong model = getModel();
+        try {
+            ltDAO.delete(model);
+            this.loadData();
+            this.clear();
+            DialogHelper.alert(this, "Xoá bảng lương thành công");
+        } catch (Exception e) {
+            DialogHelper.alert(this, "Xoá bảng lương thất bại");
+            System.out.println(""+e);
+        }
     }
     
 }

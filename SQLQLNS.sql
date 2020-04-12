@@ -8,6 +8,19 @@ go
 use QLNS
 go
 
+if OBJECT_ID('sp_TKLuong') is not null
+drop Procedure sp_TKLuong
+go
+
+Create Procedure sp_TKLuong
+As
+	Select SQ.maPhongBan, SQ.tenPhongBan, SUM(TongLuong) as LuongTheoPhong 
+	FROM (Select PhongBan.maPhongBan, PhongBan.tenPhongBan, ngayCong*NhanVien.luongCoBan as TongLuong 
+			FROM LuongThuong inner join NhanVien on LuongThuong.maNhanVien = NhanVien.maNhanVien
+							 inner join PhongBan on PhongBan.maPhongBan = NhanVien.maPhongBan) as SQ
+	Group by SQ.maPhongBan, SQ.tenPhongBan
+Go
+
 if OBJECT_ID('PhongBan') is not null
 drop table PhongBan
 go 

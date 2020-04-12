@@ -21,7 +21,7 @@ import org.hibernate.SessionFactory;
  */
 public class NhanVienDAO {
     public List<NhanVien> getListNhanVien(){
-        List<NhanVien> list=null;
+        List<NhanVien> list= new ArrayList<>();
         SessionFactory factory = HibernateUtil.getSessionFactory();
         Session session = factory.getCurrentSession();
         session.beginTransaction();
@@ -30,7 +30,7 @@ public class NhanVienDAO {
             Query query = session.createQuery(hql);
             list = query.list();
         } catch (Exception e) {
-            System.out.println(""+e);
+            System.out.println("Lỗi list nvDAO "+e);
         }
         session.close();
         return list;

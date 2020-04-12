@@ -9,6 +9,7 @@ import com.qlns.dao.NhanVienDAO;
 import com.qlns.dao.PhongBanDAO;
 import com.qlns.helper.DialogHelper;
 import com.qlns.model.BangLuongPhongBan;
+import com.qlns.model.BangTKLuongPhong;
 import com.qlns.model.BangTKNhanVien;
 import com.qlns.model.NhanVien;
 import com.qlns.model.PhongBan;
@@ -91,10 +92,10 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) tblTongLuong.getModel();
         model.setRowCount(0);
         try {
-            List<BangLuongPhongBan> listLP = pbDAO.getListTK();
+            List<BangTKLuongPhong> listLP = pbDAO.getListTK();
             listLP.forEach((lp) -> {
                 model.addRow(new Object[]{
-                    lp.getMaPhongBan(), lp.getTenPhongBan(), lp.getLuongPhongBan()});
+                    lp.getMaPhongBan(), lp.getTenPhongBan(), lp.getTongLuong()});
             });
         } catch (Exception e) {
             System.out.println("" + e);

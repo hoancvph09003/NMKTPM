@@ -27,7 +27,11 @@ import javax.persistence.TemporalType;
 )
 public class NhanVien  implements java.io.Serializable {
 
-
+    @Override
+    public String toString(){
+        return this.tenNhanVien;
+    }
+    
      private String maNhanVien;
      private ChucVu chucVu;
      private PhongBan phongBan;

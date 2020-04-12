@@ -166,7 +166,7 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
@@ -228,14 +228,29 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
         btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Edit.png"))); // NOI18N
         btnSua.setText("Sửa");
         btnSua.setPreferredSize(new java.awt.Dimension(90, 50));
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
 
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Delete.png"))); // NOI18N
         btnXoa.setText("Xóa");
         btnXoa.setPreferredSize(new java.awt.Dimension(90, 50));
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
 
         btnLamMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlns/icon/Refresh.png"))); // NOI18N
         btnLamMoi.setText("Làm mới");
         btnLamMoi.setPreferredSize(new java.awt.Dimension(90, 50));
+        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLamMoiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -351,7 +366,7 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 2, Short.MAX_VALUE)
                 .addComponent(jLabel1))
         );
 
@@ -404,6 +419,21 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tblNhanVienMouseClicked
 
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        // TODO add your handling code here:
+        this.update();
+    }//GEN-LAST:event_btnSuaActionPerformed
+
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+        // TODO add your handling code here:
+        this.clear();
+    }//GEN-LAST:event_btnLamMoiActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+        this.delete();
+    }//GEN-LAST:event_btnXoaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Tabs;
@@ -453,7 +483,7 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
                     nv.getTenNhanVien(), nv.getPhongBan().getMaPhongBan(), nv.getChucVu().getChucVu(), nv.getLuongCoBan(), nv.getDiaChi(), nv.getEmail()});
             }
         } catch (Exception e) {
-            System.out.println("" + e);
+            DialogHelper.alert(this, "Lỗi bảng NV!" +e);
         }
     }
     
@@ -498,7 +528,7 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
         NhanVien model = new NhanVien();
         model.setMaNhanVien(txtMaNhanVien.getText());
         model.setTenNhanVien(txtHoTen.getText());
-        model.setChucVu((ChucVu) (cboChucVu.getSelectedItem()));
+        model.setChucVu((ChucVu) cboChucVu.getSelectedItem());
         model.setDiaChi(txtDiaChi.getText());
         model.setEmail(txtEmail.getText());
         model.setLuongCoBan(Double.parseDouble(txtLuongCoBan.getText()));
@@ -533,7 +563,7 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
             this.clear();
             DialogHelper.alert(this, "Thêm Nhân viên thành công");
         } catch (Exception e) {
-            DialogHelper.alert(this, "Thêm nhân viên thất bại");
+            DialogHelper.alert(this, "Thêm nhân viên thất bại" + e);
             System.out.println(""+e);
         }
     }
@@ -542,9 +572,9 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
         try {
             nvDAO.update(model);
             this.loadData();
-            DialogHelper.alert(this, "Thêm Nhân viên thành công");
+            DialogHelper.alert(this, "Sửa Nhân viên thành công");
         } catch (Exception e) {
-            DialogHelper.alert(this, "Thêm nhân viên thất bại");
+            DialogHelper.alert(this, "Sửa nhân viên thất bại");
             System.out.println(""+e);
         }
     }
@@ -554,9 +584,9 @@ public class QLNhanVienJInternalFrame extends javax.swing.JInternalFrame {
             nvDAO.delete(model);
             this.loadData();
             this.clear();
-            DialogHelper.alert(this, "Thêm Nhân viên thành công");
+            DialogHelper.alert(this, "Xoá Nhân viên thành công");
         } catch (Exception e) {
-            DialogHelper.alert(this, "Thêm nhân viên thất bại");
+            DialogHelper.alert(this, "Xoá nhân viên thất bại");
             System.out.println(""+e);
         }
     }

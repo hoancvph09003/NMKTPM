@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/model/NhanVien.java</file>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/model/ChucVu.java</file>
             <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/ui/QLLuongThuongJInternalFrame.java</file>
-            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/ui/Main.java</file>
-            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/model/BangTKNhanVien.java</file>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/helper/DateHelper.java</file>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/dao/LuongThuongDAO.java</file>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/model/PhongBan.java</file>
+            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/ui/QLNhanVienJInternalFrame.java</file>
             <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/ui/ThongKeJInternalFrame.java</file>
-            <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/dao/NhanVienDAO.java</file>
             <file>file:/C:/Users/Quan/Documents/GitHub/NMKTPM/NMKTPM/src/com/qlns/dao/PhongBanDAO.java</file>
         </group>
     </open-files>
